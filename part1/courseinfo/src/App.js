@@ -2,29 +2,21 @@ import React from 'react'
 
 const Header = (props) => {
   return (
-    <p>
+    <h1>
       {props.course}
-    </p>
+    </h1>
   )
 }
 
-const Content = (props) => {
+const Part = (props) => {
   return (
-    <p>
-      {props.parts}
-    </p>
+    <div>
+      <p>
+        {props.parts} parts: {props.exercises}
+      </p>
+    </div>
   )
 }
-
-
-const Total = (props) => {
-  return (
-    <p>
-      {props.total}
-    </p>
-  )
-}
-
 
 const App = () => {
   const course = 'Half Stack application development'
@@ -37,15 +29,11 @@ const App = () => {
 
   return (
     <div>
-      <Header course={course} />
-      <Content parts={part1} />
-      <Total exercises={exercises1} />
+      <Part parts={part1} exercises={ exercises1} />
 
-      <Content parts={part2} />
-      <Total exercises={exercises2} />
+      <Part parts={part2} exercises={ exercises2}/>
 
-      <Content parts={part3} />
-      <Total exercises={exercises3} />
+      <Part parts={part3} exercises={ exercises3}/>
       
       <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
     </div>
