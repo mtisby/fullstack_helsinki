@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const handleGoodClick = () => {
+  const newClicks = {
+    good: good + 1
+  }
 }
 
-export default App;
+const handleNeutralClick = () => {
+  const newClicks = {
+    neutral: neutral + 1
+  }
+}
+
+const handleBadClick = () => {
+  const newClicks = {
+    bad: bad + 1
+  }
+}
+
+
+const App = () => {
+  // save clicks of each button to its own state
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
+
+  return (
+    <div>
+      <div>
+        <button>good</button> 
+        <button>neutral</button> 
+        <button>bad</button> 
+      </div>
+
+      <div>
+        <p>good {setGood}</p>
+        <p>neutral {setNeutral}</p>
+        <p>bad {setBad}</p>
+        <p>all {setGood}+{setBad}+{setNeutral}</p>
+        <p>average ({setGood}+{setBad}+{setNeutral})/3</p>
+        <p>positive ({setGood})/({setGood}+{setBad}+{setNeutral})</p>
+      </div>
+    </div>
+  )
+}
+
+export default App
