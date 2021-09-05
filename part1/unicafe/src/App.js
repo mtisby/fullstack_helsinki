@@ -28,9 +28,9 @@ const App = () => {
   return (
     <div>
       <div>
-        <button>good</button> 
-        <button>neutral</button> 
-        <button>bad</button> 
+        <button onClick={handleGoodClick}>good</button>
+        <button onClick={handleNeutralClick}>neutral</button> 
+        <button onClick={handleBadClick}>bad</button> 
       </div>
 
       <div>
@@ -38,7 +38,7 @@ const App = () => {
         <p>neutral {setNeutral}</p>
         <p>bad {setBad}</p>
         <p>all {setGood}+{setBad}+{setNeutral}</p>
-        <p>average ({setGood}+{setBad}+{setNeutral})/3</p>
+        <p>average ({setGood}-{setBad})/({setGood}+{setBad}+{setNeutral})</p>
         <p>positive ({setGood})/({setGood}+{setBad}+{setNeutral})</p>
       </div>
     </div>
