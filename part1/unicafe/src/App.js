@@ -1,7 +1,21 @@
 import React, { useState } from 'react'
 
-const Statistics = () => {
-  
+const Statistics = (props) => {
+  if (props.text === "average" && isNaN(props.value) === true){
+    return (
+      null
+    )
+  } else if (props.text === "positive" && isNaN(props.value) === true) {
+    return (
+      null
+    )
+  } else {
+    return (
+      <div>
+        <p>{props.text} {props.value}</p>
+      </div>
+    )
+  }
 }
 
 const App = () => {
@@ -25,13 +39,12 @@ const App = () => {
 
       <div>
         <h1>statistics</h1>
-        <p>good {good}</p>
-        <p>neutral {neutral}</p>
-        <p>bad {bad}</p>
-        <Statistics text="average" value={good, bad, neutral} />
-        <Statistics text="positive" value={good, bad, neutral}/>
-        <p>average {good - bad/(good+bad+neutral)}</p>
-        <p>positive {good/(good+bad+neutral)}</p>
+        <Statistics text="good" value={good} />
+        <Statistics text="neutral" value={neutral} />
+        <Statistics text="bad" value={bad} />
+        <Statistics text="all" value={good + bad + neutral} />
+        <Statistics text="average" value={good-bad/(good + bad + neutral)} />
+        <Statistics text="positive" value={good/(good + bad + neutral)}/>
       </div>
     </div>
   )
